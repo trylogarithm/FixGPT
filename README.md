@@ -61,7 +61,7 @@ loki:
 
 git:
   enabled: true
-  repo_path: "."  # Current directory (the fixgpt project itself)
+  repo_path: "/your/path"  
 ```
 
 ### Example Configuration for Production Development
@@ -101,17 +101,17 @@ loki:
 
 git:
   enabled: true
-  repo_path: "/app" 
+  repo_path: "/your/path" 
 
 ```
 ## Usage
 
 ### Basic Usage
 
-Run the debugging agent and follow the prompts:
+Run the debugging agent with your query:
 
 ```bash
-python main.py
+python main.py "Why is our authentication service down" 
 
 ```
 
@@ -128,32 +128,28 @@ python main.py
 ### Debugging High Error Rate
 
 ```bash
-export HANDS_QUERY="Debug 500 errors spike in payment-service since 2 hours ago"
-python main.py
+python main.py "Debug 500 errors spike in payment-service since 2 hours ago"
 
 ```
 
 ### Memory Leak Investigation
 
 ```bash
-export HANDS_QUERY="Investigate memory leak in user-service pods"
-python main.py
+python main.py "Investigate memory leak in user-service pods"
 
 ```
 
 ### Post-Deployment Issues
 
 ```bash
-export HANDS_QUERY="Check for issues after deployment of order-service v2.3.1"
-python main.py
+python main.py "Check for issues after deployment of order-service v2.3.1"
 
 ```
 
 ### Database Performance Issues
 
 ```bash
-export HANDS_QUERY="Analyze slow queries affecting checkout service"
-python main.py
+python main.py "Analyze slow queries affecting checkout service"
 
 ```
 

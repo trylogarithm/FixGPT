@@ -18,8 +18,18 @@ async def main():
     print("🚨 Hands - Production Debugging Agent")
     print("=" * 50)
     
-    # Get the user's debugging goal
-    user_goal = os.environ.get("HANDS_QUERY")
+    # Get the user's debugging goal from command line argument, environment variable, or interactive input
+    user_goal = None
+    
+    # First, check for command line argument
+    if len(sys.argv) > 1:
+        user_goal = " ".join(sys.argv[1:]).strip()
+    
+    # If no command line argument, check environment variable
+    if not user_goal:
+        user_goal = os.environ.get("HANDS_QUERY")
+    
+    # If neither, prompt for interactive input
     if not user_goal:
         print("\nWhat production issue would you like me to investigate?")
         print("Examples:")
