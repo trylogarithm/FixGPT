@@ -36,42 +36,6 @@ python main.py
 -   kubectl configured with appropriate permissions
 -   [optional] Prometheus/Loki endpoints (if using metrics/logs tools
 
-## Installation
-
-1.  **Clone the repository**
-
-```bash
-git clone https://github.com/trylogarithm/fixgpt.git
-cd fixgpt
-
-```
-
-2.  **Install dependencies:**
-
-```bash
-pip install -r requirements.txt
-
-```
-
-3.  **Configure your OpenAI API key** in `hands.py` or set as environment variable:
-
-```bash
-export OPENAI_API_KEY="your-api-key-here"
-
-```
-
-4.  **Create and validate your configuration:**
-
-```bash
-# Copy the example configuration
-cp config.yaml.local config.yaml
-# Edit the configuration file
-nano config.yaml
-# Validate your configuration
-python validate_config.py
-
-```
-
 ## Configuration
 
 ### Example Configuration for Local Development
