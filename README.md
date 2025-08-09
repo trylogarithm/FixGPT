@@ -123,13 +123,6 @@ python main.py
 
 ```
 
-### Interactive Mode
-
-```bash
-python main.py --interactive
-
-```
-
 ## 📚 Examples
 
 ### Debugging High Error Rate
