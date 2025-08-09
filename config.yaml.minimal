@@ -1,0 +1,20 @@
+# config.yaml.minimal - Minimal Configuration
+# Bare minimum to get started with just Kubernetes tools
+
+global:
+  max_steps: 5
+  log_level: "INFO"
+
+# Enable only Kubernetes tools (no external dependencies)
+kubernetes:
+  enabled: true
+
+# Disable other tools if you don't have them set up yet
+prometheus:
+  enabled: false
+
+loki:
+  enabled: false
+
+git:
+  enabled: false

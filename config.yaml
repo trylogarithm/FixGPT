@@ -1,0 +1,28 @@
+global:
+  max_steps: 5
+  log_level: "INFO"
+
+kubernetes:
+  enabled: true
+
+prometheus:
+  enabled: true
+  prometheus_url: "http://prometheus:9090"  # NOT nested under connection
+  # Optional auth (flat structure):
+  username: "user"
+  password: "pass" 
+  # OR
+  token: "bearer_token"
+
+loki:
+  enabled: true
+  loki_url: "http://loki:3100"  # NOT nested under connection
+  # Optional auth (flat structure):
+  username: "user"
+  password: "pass"
+  # OR  
+  token: "bearer_token"
+
+git:
+  enabled: true
+  repo_path: "/path/to/repo" 

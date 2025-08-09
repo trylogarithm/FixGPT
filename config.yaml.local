@@ -1,0 +1,32 @@
+# config.yaml.local - Local Development Configuration
+# Copy this to config.yaml for local testing
+
+global:
+  max_steps: 5
+  log_level: "DEBUG"  # More verbose for local development
+  output_directory: "agent_outputs"
+
+# Kubernetes - assuming local cluster (minikube, kind, etc.)
+kubernetes:
+  enabled: true
+  # The kubectl tool will use your default context
+  # Make sure kubectl is configured for your local cluster
+
+# Prometheus - local instance or port-forwarded
+prometheus:
+  enabled: true
+  prometheus_url: "http://localhost:9090"
+  # No auth for local development
+  # If using port-forward: kubectl port-forward svc/prometheus 9090:9090
+
+# Loki - local instance or port-forwarded  
+loki:
+  enabled: true
+  loki_url: "http://localhost:3100"
+  # No auth for local development
+  # If using port-forward: kubectl port-forward svc/loki 3100:3100
+
+# Git - local repository
+git:
+  enabled: true
+  repo_path: "."  # Current directory (the fixgpt project itself)

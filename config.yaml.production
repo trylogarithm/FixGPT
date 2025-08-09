@@ -1,0 +1,50 @@
+# config.yaml.production - Production Configuration
+# Copy this to config.yaml for production deployment
+
+global:
+  max_steps: 10  # More thorough investigation in production
+  log_level: "INFO"
+  output_directory: "/var/log/fixgpt/outputs"
+
+# Kubernetes - production cluster
+kubernetes:
+  enabled: true
+  # Ensure kubectl is configured with production context
+  # kubectl config use-context production-cluster
+
+# Prometheus - production monitoring stack
+prometheus:
+  enabled: true
+  prometheus_url: "http://prometheus.monitoring.svc.cluster.local:9090"
+  # For external Prometheus (if outside cluster):
+  # prometheus_url: "https://prometheus.yourcompany.com"
+  
+  # Authentication for secured Prometheus
+  # Option 1: Bearer token
+  token: "${PROMETHEUS_TOKEN}"
+  
+  # Option 2: Basic auth (uncomment if using basic auth instead)
+  # username: "${PROMETHEUS_USER}"
+  # password: "${PROMETHEUS_PASS}"
+
+# Loki - production logging stack  
+loki:
+  enabled: true
+  loki_url: "http://loki.monitoring.svc.cluster.local:3100"
+  # For external Loki (if outside cluster):
+  # loki_url: "https://loki.yourcompany.com"
+  
+  # Authentication for secured Loki
+  # Option 1: Basic auth (common for Grafana Cloud/Enterprise)
+  username: "${LOKI_USER}"
+  password: "${LOKI_PASS}"
+  
+  # Option 2: Bearer token (uncomment if using token auth instead)
+  # token: "${LOKI_TOKEN}"
+
+# Git - production repository monitoring
+git:
+  enabled: true
+  repo_path: "/app"  # Path to your application code in container
+  # Or if monitoring external repo, clone it first:
+  # repo_path: "/repos/your-app"
